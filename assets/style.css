@@ -1,0 +1,70 @@
+/* USUAL BODY STYLING*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #ff6c6c; */
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    /* background-color: #5fff92; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #009dff;
+    text-align: center;
+}
+p {
+    color: #666666;
+    text-align: center;
+}
+
+
+
+
+/* COLUMNS */
+.two-columns {
+    display: flex;
+    margin: 10px;
+}
+
+.left-column {
+    flex: 4; /* Adjust the value to make the left column bigger */
+    /* background-color: #6db6ff; */
+}
+
+.right-column {
+    flex: 1; /* Adjust the value to make the right column smaller */
+    /* background-color: #0050a1; */
+
+}
+
+/* Optional: Adjust margins or other styles as needed */
+.two-columns > * {
+    margin: 0 10px; /* Adjust margins as needed */
+}
+
+
+
+/* PLOTS */
+.plot {
+    margin: 10px;
+    height: 50vh;
+}
+
+
+/* PAGE LINK BUTTONS */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+}
