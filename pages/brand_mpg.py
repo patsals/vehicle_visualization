@@ -7,7 +7,7 @@ import plotly.express as px
 dash.register_page(__name__)
 
 # https://www.kaggle.com/datasets/sahirmaharajj/fuel-economy
-df = pd.read_csv('data/vehicle.csv')
+df = pd.read_csv('data/vehicle.csv', low_memory=False)
 top_car_brands = [
     "Toyota",
     "Volkswagen",
@@ -20,8 +20,6 @@ df.loc[(df['unadjusted_highway_mpg_ft2'] == 0), 'unadjusted_highway_mpg_ft2'] = 
 
 
 layout = html.Div([
-    html.H1('This is our Analytics page'),
-
     #
     html.Div(className='two-columns', children=[
         # plot

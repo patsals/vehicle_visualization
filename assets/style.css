@@ -27,7 +27,7 @@ p {
 /* COLUMNS */
 .two-columns {
     display: flex;
-    margin: 10px;
+    margin: 0px;
 }
 
 .left-column {
@@ -38,12 +38,38 @@ p {
 .right-column {
     flex: 1; /* Adjust the value to make the right column smaller */
     /* background-color: #0050a1; */
+    
 
 }
 
+h1 {
+    background-color: #efefef;
+}
 /* Optional: Adjust margins or other styles as needed */
 .two-columns > * {
-    margin: 0 10px; /* Adjust margins as needed */
+    margin: 0 0px; /* Adjust margins as needed */
+}
+
+
+.navbar-columns {
+    display: flex;
+    /* margin: 10px; */
+}
+
+.navbar-left-column {
+    flex: 1; /* Adjust the value to make the left column bigger */
+    background-color: #efefef;
+    /* margin-top: 50px; */
+    min-height: 300vh;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.navbar-right-column {
+    flex: 5; /* Adjust the value to make the right column smaller */
+    /* background-color: #0050a1; */
+    /* margin: 10px; */
+
 }
 
 
@@ -67,4 +93,12 @@ p {
 
 .button-link:hover {
     background-color: #0056b3;
+}
+
+
+.navbar-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.3s ease;
 }
