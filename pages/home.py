@@ -83,8 +83,9 @@ def generate_mpg_kpi(type):
         dbc.CardBody(
             [
                 html.Div(type + (' average mpge' if type == 'Electricity' else ' average mpg'),
-                        className='text-nowrap',
+                        #className='text-nowrap',
                         style={'font-size':'14px'}),
+                      
                 html.Hr(style={'margin':'auto', 'width':'75%'}),
                 html.Div(current_mpg,
                          style={'font-size':'20px',
@@ -99,9 +100,10 @@ def generate_mpg_kpi(type):
             ], className="border-color"
         ),
         className='text-center',
-        style={'max-width': '250px',
+        style={'max-width': '200px',
                'border-style': 'none',
-               'background-color':'#f0f0f0'}
+               'background-color':'#f0f0f0',
+               'height':'120px'}
     )
     return kpi_block
     
@@ -111,17 +113,17 @@ def generate_savespend_bar():
     most_recent_year = df['year'].max()
     temp = df[df['year'] == most_recent_year]
     temp = temp.groupby(['fuel_type_1'])['save_or_spend_5_year'].mean().reset_index().iloc[:, :2]
-    temp.columns = ['fuel type', 'amount saved/spent']
+    temp.columns = ['fuel type', 'amount saved']
 
     fig = px.bar(data_frame=temp, 
-                x="fuel type", y="amount saved/spent", 
-                color="amount saved/spent",
+                x="fuel type", y="amount saved", 
+                color="amount saved",
                 color_continuous_scale=[[0, 'red'], [0.5, 'yellow'], [1, 'green']],
                 hover_name="fuel type", 
                 category_orders={'fuel type': ['Regular Gasoline', 'Midgrade Gasoline', 'Premium Gasoline', 'Diesel', 'Electricity']},
                 )
     fig.update_layout(
-            title=f'Average Amount Saved/Spent Over 5 years',
+            title=f'Average Amount Saved Over 5 years',
             font=dict(
                         size=14  # Set the font size to 14
                     ),
@@ -188,13 +190,13 @@ def generate_mpg_hisogram(type):
                             name=ft_type
                             ), i+1, 1
          )
-    
+         
     mpg_histograms.update_xaxes(range=[range_min, range_max])
 
     mpg_histograms.update_yaxes(title_text='percentage', row=3, col=1)
     mpg_histograms.update_xaxes(title_text='mpg', row=5, col=1)
     mpg_histograms.update_layout(
-            title=f'{type.split('_')[0].capitalize()} MPG(e) Distribution',
+            title=f"{type.split('_')[0].capitalize()} MPG(e) Distribution",
             font=dict(
                         size=14  # Set the font size to 14
                     ),
